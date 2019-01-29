@@ -3,10 +3,11 @@ from setuptools import setup
 from os.path import abspath, dirname, join
 
 here = dirname(abspath(__file__))
+version_file = join(here, 'src', 'MQTTLibrary', 'version.py')
 
 
 # Get version
-execfile(join(here, 'src', 'MQTTLibrary', 'version.py'))
+exec(compile(open(version_file).read(), version_file, 'exec'))
 
 # Get the long description
 with open(join(here, 'README.rst')) as f:
@@ -25,6 +26,7 @@ setup(
         'Development Status :: 3 - Alpha',
         'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.6',
         'Topic :: Software Development :: Testing',
     ],
     keywords          = 'robotframework testing testautomation mqtt',
